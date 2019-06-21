@@ -1,15 +1,17 @@
 package com.creditservice.beans;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class CreditScore 
 {
+	@Id
 	private int ssn;
 	private int creditScore;
 	private String name;
 	
-	protected CreditScore() {}
+	public CreditScore() {}
 	
 	public int getSsn() 
 	{
