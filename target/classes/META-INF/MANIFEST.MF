@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Built-By: sneaky
-Build-Jdk: 12.0.1
-Implementation-Title: creditscoreservice
-Implementation-Version: 0.0.1-SNAPSHOT
-Implementation-Vendor-Id: com.creditservice
-Implementation-URL: http://maven.apache.org
-Created-By: Maven Integration for Eclipse
-
