@@ -32,19 +32,24 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.jcraft</groupId>
-			<artifactId>jsch</artifactId>
-			<version>0.1.42</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>3.2.1.RELEASE</version>
 		</dependency>
-		<dependency>
+		<!--  <dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc8</artifactId>
 			<version>12.2.0.1</version>
+		</dependency>-->
+		
+		<dependency>
+  			<groupId>mysql</groupId>
+   			<artifactId>mysql-connector-java</artifactId>
+   			<scope>runtime</scope>
 		</dependency>
 
 
@@ -74,13 +79,12 @@
 			<groupId>org.webjars</groupId>
 			<artifactId>bootstrap</artifactId>
 			<version>3.3.7</version>
-		</dependency>
+		</dependency> 
 		
-		<!--  Added for annotations in database entity class -->
 		<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        
+    		<groupId>org.javassist</groupId>
+    		<artifactId>javassist</artifactId>
+    		<version>3.23.1-GA</version>
+		</dependency>
 	</dependencies>
 </project>
