@@ -1,28 +1,45 @@
 package com.creditservice.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;  
 
 import com.creditservice.beans.*;
+import com.creditservice.service.ScoreService;
 
-@RestController
-@RequestMapping(path="/ssn")
+@Controller
 public class CreditScoreController 
 {
 	@Autowired
-	private CustomerRepo customerRepo;
+	private ScoreService scoreService;
 	
-	@PostMapping(path="/creditscore")
-	public String findScore(
-			@RequestParam int ssn, ModelAndView mandv)
+	@GetMapping("/")
+	public String showHome()
 	{
-		CreditScore cScore = customerRepo.findById(ssn).get();
-		mandv.addObject("score", cScore);
-		return "find-score";
+		return "form";
+	}
+	
+	@PostMapping("/score")
+	public String findScore(
+			@RequestParam int ssn, Model model)
+	{
+		CreditScore cScore = scoreService.getScoreBySsn(ssn);
+		if(cScore == null)
+		{
+			return "redirect:/err";
+		}
+		model.addAttribute("score", cScore);
+		return "viewscore";
+	}
+	
+	@GetMapping("/err")
+	public String error(Model model)
+	{
+		model.addAttribute("message", "SSN not found in database.");
+		return "error";
 	}
 	
 }
